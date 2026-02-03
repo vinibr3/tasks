@@ -1,19 +1,19 @@
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
-  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  database: <%= ENV.fetch('DATABASE_NAME') { 'tasks-development' } %>
-  host: <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD') { 'tasks' } %>
-  port: <%= ENV.fetch('DATABASE_PORT') { '5432' } %>
-  username: <%= ENV.fetch('DATABASE_USERNAME') { 'tasks' } %>
+  pool: 5
+  database: db/development.sqlite3
+  host: 'localhost'
+  password: 'tasks'
+  port: 5432
+  username: 'tasks'
 
 development:
   <<: *default
 
 test:
   <<: *default
-  database: <%= ENV.fetch('DATABASE_TEST_NAME') { 'tasks-test' } %>
+  database: 'tasks-test'
 
 homolog:
   <<: *default
